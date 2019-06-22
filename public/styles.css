@@ -1,0 +1,93 @@
+.custBody {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333;
+    color: #fff;
+    height: 100vh;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.custContainer {
+    width: 100%;
+    height: 100%;
+    /* CSS Smooth Scroll */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+.gray-gradient {
+    background: #bdc3c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.green-gradient {
+    background: #11998e;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #38ef7d, #11998e);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.parallax-background {
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    height: 100vh;
+    /* background-attachment: fixed; */
+}
+
+#text-shadow {
+    color: transparent;
+    background: #000;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 3px 4px rgba(255, 255, 255, 0.5);
+}
+
+.bgt {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px 20px;
+}
+
+.nav-link {
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.350em;
+    font-weight: normal;
+    transition: border-bottom-color 150ms linear 0s;
+}
+
+.nav-link:hover {
+    border-bottom-color: #f4f4f4;
+}
+
+.btn-red {
+    background-color: #ED213A;
+}
+
+.btn-yellow {
+    background-color: #ffe000;
+}
+
+.inline {
+    display: inline-block;
+}
+
+#customBtn {
+    border-radius: 0;
+    transition: all 150ms linear;
+}
+
+#customBtn:hover {
+    border-radius: 25px;
+}

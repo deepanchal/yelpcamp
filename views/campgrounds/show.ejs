@@ -1,0 +1,54 @@
+<% include ../partials/header.ejs %>
+
+<div class="py-4 parallax-background" style="background-image: url(<%=campground.image%>);">
+    <div class="container pt-3 pb-1 bgt">
+        <h1 id="text-shadow" class="display-4 text-center text-uppercase font-weight-bold">
+            <%= campground.name %>
+        </h1>
+        <p class="lead font-weight-normal">
+            <%= campground.description %>
+        </p>
+        <p class="text-right font-italic">
+            Submitted By <%= campground.author.username %>
+        </p>
+    </div>
+</div>
+<% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <a href="/campgrounds/<%= campground._id %>/edit" id="customBtn" class="btn btn-block btn-yellow my-2 text-dark">Edit campground</a>
+            </div>
+            <div class="col-lg-6">
+                <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post" onsubmit="return confirm('Are you sure you want to delete?')">
+                    <button class="btn btn-block btn-red my-2 text-light" id="customBtn">Delete campground</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<div class="container mb-2">
+    <ul class="list-group-flush">
+        <a href="/campgrounds/<%= campground._id %>/comments/new" id="customBtn" class="btn btn-info my-2">Leave a review</a>
+
+        <% campground.comments.forEach((comment) => { %>
+            <li class="list-group-item">
+                    <p class="mb-0 lead"><%= comment.text %></p>
+                    <footer class="blockquote-footer text-right"><%= comment.author.username %></footer>
+                    
+                    <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+                        <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit" class="btn btn-sm btn-yellow text-dark">
+                            Edit
+                        </a>
+                        <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="post" class="inline"
+                            onsubmit="return confirm('Are you sure you want to delete?')">
+                            <button class="btn btn-sm btn-red my-2 text-light">Delete comment</button>
+                        </form>
+                    <% } %>
+                </li>
+        <% }) %>
+    </ul>
+</div>
+
+<% include ../partials/footer.ejs %>

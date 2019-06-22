@@ -1,0 +1,16 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <h1 class="text-center">Edit your comment on <%= campground.name %></h1>
+    <div class="row justify-content-center">
+        <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=PUT" method="post" class="col-lg-6 mt-3">
+            <div class="form-group">
+                <label for="placeName">Comment: </label>
+                <input id="placeName" type="text" name="comment[text]" value="<%= comment.text %>" class="form-control" required>
+            </div>
+            <button class="btn btn-success btn-block" type="submit">Edit Comment</button>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

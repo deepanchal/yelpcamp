@@ -1,0 +1,21 @@
+<% include ./partials/header.ejs %>
+
+<div class="container">
+    <h1 class="text-center my-2">Sign Up</h1>
+    <div class="row justify-content-center">
+        <form action="/register" method="post" class="col-12 col-sm-6 mt-3">
+            <div class="form-group">
+                <label for="un">Username </label>
+                <input id="un" type="text" name="username" placeholder="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="ps">Password </label>
+                <input id="ps" type="password" name="password" placeholder="password" class="form-control"
+                    required>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+<% include ./partials/footer.ejs %>

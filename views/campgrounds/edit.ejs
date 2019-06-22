@@ -1,0 +1,27 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <h1 class="text-center mt-3">Edit <%= campground.name %></h1>
+    <div class="row justify-content-center">
+        <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" class="col-lg-6 mt-3">
+            <div class="form-group">
+                <label for="placeName">Name of Campground: </label>
+                <input id="placeName" type="text" name="campground[name]" value="<%=campground.name%>" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="imgurl">Image URL of the Campground: </label>
+                <input id="imgurl" type="url" name="campground[image]" value="<%=campground.image%>" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="desc">Description: </label>
+                <textarea name="campground[description]" id="desc" cols="30" rows="6" class="form-control"
+                    placeholder="Campground Description">
+                    <%=campground.description%>
+                </textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Edit Campground</button>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YelpCamp</title>
+    <!-- <link rel="stylesheet" href="/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="/bootswatchJournal.min.css">
+    <!-- <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="/">YelpCamp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item mx-2">
+                    <a href="/campgrounds" class="nav-link">Campgrounds</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <% if (!currentUser) { %>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="/register">SignUp</a>
+                </li>
+                <% } else { %>
+                <li class="mx-2">
+                    <span class="nav-link">
+                        Signed in as <%= currentUser.username %>
+                    </span>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="/logout">LogOut</a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+
+    <% if(success && success.length > 0) {%>
+        <div class="alert alert-dismissible alert-success m-0 rounded-0">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%=success%>
+        </div>
+    <% } %>
+    <% if(error && error.length > 0) {%>
+        <div class="alert alert-dismissible alert-primary m-0 rounded-0">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%=error%>
+        </div>
+    <% } %>
