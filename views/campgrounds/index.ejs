@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row justify-content-around">
         <% campgrounds.forEach((key) => { %>
-        <div class="card mr-3 mb-3 border-0" style="width: 22rem;">
+        <div class="card mx-2 mb-3 border-0" style="width: 22rem;">
             <h5 class="card-header border border-dark text-center"> <%= key.name %></h5>
             <img src="<%= key.image %>>" class="card-img-top p-0 rounded-0" alt="...">
             <a href="/campgrounds/<%= key._id %>" class="btn btn-success btn-block rounded-0">View Details</a>
