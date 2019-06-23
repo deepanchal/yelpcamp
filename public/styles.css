@@ -60,6 +60,10 @@
     border-radius: 20px 20px;
 }
 
+.h30vh {
+    height: 30vh;
+}
+
 .nav-link {
     border-bottom: 2px solid transparent;
     padding-bottom: 0.350em;
