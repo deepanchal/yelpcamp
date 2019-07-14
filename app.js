@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express"),
     mongoose = require("mongoose"),
     bodyParser = require("body-parser"),
@@ -19,7 +20,7 @@ var authRoutes = require("./routes/auth");
 //     .then(() => console.log("MongoDB Connected...."))
 //     .catch(err => console.log(err));
 
-mongoose.connect('mongodb+srv://me:itsmemongo@apptesting-nctav.mongodb.net/yelpcamp?retryWrites=true&w=majority', { useNewUrlParser: true, useFindAndModify: false })
+mongoose.connect(process.env.CONN_STR, { useNewUrlParser: true, useFindAndModify: false })
     .then(() => console.log("MongoDB Connected...."))
     .catch(err => console.log(err));
 
@@ -52,7 +53,7 @@ app.use((req, res, next) => {
 
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
-app.use("/" ,authRoutes);
+app.use("/", authRoutes);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
